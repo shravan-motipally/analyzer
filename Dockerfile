@@ -20,6 +20,8 @@ COPY --chown=docker:docker ./requirements.txt /home/docker/app/requirements.txt
 # Install dependencies using existing requirements.txt in /home/docker/app/requirements.txt
 RUN pip3 install --no-cache-dir -r /home/docker/app/requirements.txt
 
+RUN python -m spacy download en_core_web_sm
+
 WORKDIR /home/docker/app
 
 # Copy the rest of the files with docker user as owner
